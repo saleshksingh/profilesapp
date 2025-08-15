@@ -3,16 +3,7 @@ import { type Schema } from "../../data/resource";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";
 import { createUserProfile } from "./graphql/mutations";
-
-import { defineFunction } from '@aws-amplify/backend-function';
-
-export const postConfirmation = defineFunction({
-  name: 'postConfirmation',
-  entry: './amplify/auth/post-confirmation/handler.ts',
-  esbuild: {
-    external: ['$amplify/env/post-confirmation'],
-  },
-});
+import { env } from "$amplify/env/post-confirmation";
 
 
 Amplify.configure(
